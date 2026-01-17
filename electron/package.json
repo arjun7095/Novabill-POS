@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "novabill-pos",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "asar": true,
+    "appId": "com.novabill.pos",
+    "productName": "NovaBill POS",
+    "files": [
+      "**/*",
+      "../frontend/build/**/*",
+      "../backend/**/*",
+      "main.js"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "dependencies": {
+    "electron-is-dev": "^3.0.1"
+  },
+  "devDependencies": {
+    "electron": "^23.1.3",
+    "electron-builder": "^23.6.0"
+  }
+}
