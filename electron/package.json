@@ -6,17 +6,19 @@
   "type": "commonjs",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win"
+    "build": "electron-builder"
   },
   "build": {
-    "asar": true,
     "appId": "com.novabill.pos",
     "productName": "NovaBill POS",
     "files": [
-      "**/*",
-      "../frontend/build/**/*",
-      "../backend/**/*",
-      "main.js"
+      "main.js",
+      "package.json",
+      {
+        "from": "../frontend/build/",
+        "to": "build/",
+        "filter": ["**/*"]
+      }
     ],
     "win": {
       "target": "nsis"
